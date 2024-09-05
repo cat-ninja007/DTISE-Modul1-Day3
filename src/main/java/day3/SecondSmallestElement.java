@@ -1,4 +1,4 @@
-package org.example;
+package day3;
 
 public class SecondSmallestElement {
     public static int findSecondSmallest(int[] arr) {

@@ -1,4 +1,4 @@
-package org.example;
+package day3;
 
 public class LargestNumberFinder {
     public static void main(String[] args) {
