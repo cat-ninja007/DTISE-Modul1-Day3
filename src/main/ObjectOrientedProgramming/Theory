@@ -1,0 +1,85 @@
+Entities and Interaction
+
+Entities : Class
+Interactions : Method
+
+OOP Concepts :
+- Polymorphism
+- Inheritnce
+- Encapsulation
+- Object
+- Class
+- Abstraction
+
+- Polymorphism:
+Polymorphism adalah kemampuan suatu objek untuk memiliki banyak bentuk atau perilaku berbeda. Contohnya, satu fungsi dapat digunakan oleh berbagai objek, namun memberikan hasil berbeda sesuai dengan objek yang memanggilnya. Misalnya, fungsi berbunyi() dapat digunakan untuk objek Anjing dan Kucing, namun menghasilkan bunyi berbeda: Anjing menggonggong, Kucing mengeong.
+
+- Inheritance (Pewarisan):
+Inheritance adalah konsep di mana sebuah class (kelas) dapat mewarisi properti dan metode dari class lain. Artinya, class anak (subclass) bisa menggunakan atribut dan metode dari class induk (superclass) tanpa perlu menuliskannya lagi. Misalnya, class Hewan memiliki atribut nama dan metode berbunyi(), class Anjing dan Kucing dapat mewarisi atribut dan metode ini dari class Hewan.
+
+- Encapsulation:
+Encapsulation adalah cara menyembunyikan detail internal suatu objek dan hanya menyediakan akses ke hal-hal yang penting. Atribut objek disembunyikan agar tidak bisa diakses secara langsung dari luar, tetapi melalui metode tertentu. Contohnya, variabel saldo dalam objek RekeningBank tidak bisa diakses langsung, tetapi hanya bisa melalui metode seperti cekSaldo() atau setorUang().
+
+- Object (Objek):
+Objek adalah representasi dari sesuatu yang nyata atau abstrak dalam dunia pemrograman. Objek adalah instance dari sebuah class yang memiliki data (atribut) dan fungsi (metode). Misalnya, Anjing adalah objek dari class Hewan, yang memiliki atribut seperti warna, jenis, dan metode berbunyi().
+
+- Class (Kelas):
+Class adalah blueprint atau template untuk membuat objek. Class mendefinisikan atribut (variabel) dan metode (fungsi) yang dimiliki oleh objek. Misalnya, class Hewan mendefinisikan atribut seperti nama, umur, dan metode seperti berbunyi().
+
+- Abstraction (Abstraksi):
+Abstraksi adalah konsep untuk menyembunyikan detail kompleks dari pengguna dan hanya menampilkan fungsionalitas yang penting. Misalnya, ketika kita mengendarai mobil, kita tidak perlu tahu bagaimana mesin bekerja, cukup tahu cara menjalankannya dengan menggunakan setir dan pedal. Dalam pemrograman, abstraksi digunakan untuk menyederhanakan kompleksitas.
+
+
+Objects are like people. They're living, breathing things that have knowledge inside them about how to do things and have memory inside them so they can remember things. And rather than interacting with them at a very low level, you interact with them at a very high level of abstraction, like we're doing it right here.
+
+Here's an example: If I'm your laundry object, you can give me your dirty clothes and send me a message that says, "Can you get my clothes laundered, please." It happen to know where the best laundry place in San Fransisco is. And I speak English, and I have dollars in my pockets. So I go out and hail a taxicab and tell the driver to take me to this place in San Fransisco. I go get your clothes laundered, I jump back in the cab, I get back here. I give you your clen clothes and say, "Here are you clean clothes."
+
+You have no idea how I did that. You have no
+
+
+To navigate the world of OOP, it's important to understand some crucial terminology:
+- Class ==> Template
+- Object ==> The real thing comes from template (class)
+- Methods ==> behavior (actually its a function)
+- Properties ==> data, like attributes, field.
+
+
+Field : is a class's data member that is specified within the class but not in any of its methods and is used to hold the object's state
+Variable : is a named storage space in a program that is specific to a block, method, or constructor, as well as a class fiedl.
+Attribute : my be accesssed outside of the class
+
+
+Constructor is a special methods used to initialize objects.
+
+
+```ENCAPSULATION```
+Encapsulation is a mechanism for grouping data (variables) and code (methods)
+that private and public thingy bro!
+
+===BENEFITS===
+=> Data Protection and Security
+    Hiding internal details and exposes only necessary information via established interfaces which improve System Security and lowering the risk of data corruption
+
+=> Modularity and Reusability
+    Encapsulation isolates internal implementation, encouraging modularity and allowing for object reuse across different areas of a program or many programs.
+
+=> Code Maintainability
+    it makes code easier to maintain, because we separate the internal implementaion with external implementation.
+=> Information Hiding
+=> Flexibility and Extensibility
+
+
+Write a Java Program using OOP about simple ticketing system for an event.
+
+Feature Acceptance Criteria:
+Ticket Creation: The system should allow for the creation of a new ticket with a unique identifier, event name, and price.
+Ticket Booking: Users should be able to book a ticket by selecting an event and providing their details.
+Ticket Validation: The system should check if the ticket is still available for booking.
+Ticket Confirmation: After booking, the system should issue a confirmation ticket to the user.
+
+
+OOP Concept-wise Acceptance Criteria:
+Classes and Objects: The system should define a Ticket class that serves as a blueprint for creating ticket objects. Each ticket object should represent a unique ticket for an event.
+Encapsulation: The Ticket class should encapsulate the ticket details (e.g., ticket ID, event name, price) by making them private and providing public getter and setter methods to access and modify these details.
+Static Keyword: The Ticket class should use a static field to keep track of the total number of tickets sold, demonstrating the use of static variables.
+Interface Implementation (Optional): Ticket class could implement an interface (e.g., Ticketable) that defines methods for printing ticket details, ensuring that all ticket types adhere to a common contract.
