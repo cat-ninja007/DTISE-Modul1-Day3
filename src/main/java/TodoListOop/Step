@@ -1,0 +1,30 @@
+- Create Entity
+    => Entity is the representation of data
+    => To create a class that used to be the representation of data we need to provide the getter and setter
+    => getter to get the data
+    => setter to set the data
+    => create constructor
+
+- Use Case / Bussiness Logic / Service
+    To create Service Layer & Repository Layer we need to create Interface firstly, after the we do Class Implementation
+    => Create Repository for Interface
+    => Create Interface
+        ==> Usually, the name of the interface is same as the name of entity
+        ==> In this interface we will create the methods that we will use
+        ``` THE BUSINESS LOGIC```
+        1. Show Todo List
+        2. Input Todo List
+        3. Remove Todo List
+
+    => Create Service
+        ==> Create repository for Service
+        ==> Create Interface
+            ==> In this interface, we followed the amount of bussines logic method. In this case 3 methods, so we create 3 as well.
+
+    => Create View
+       ==> Create repository for View
+       ==> Create Class
+            ==> In this class, we follow the amount of business logic methods. In this case 3, so we create 3.
+
+- Implementation
+    => Repository & Service : Show Todo List

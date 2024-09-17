@@ -1,43 +1,33 @@
 package day8.utils;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    public static String getString(String prompt) {
-        System.out.print(prompt);
-        return scanner.nextLine();
-    }
+    // Method to get an integer input with error handling
+    public static int getInt(String message) {
+        int result = -1;
+        boolean validInput = false;
 
-    public static double getDouble(String prompt) {
-        double value = 0;
-        boolean valid = false;
-        while (!valid) {
+        while (!validInput) {
             try {
-                System.out.print(prompt);
-                value = Double.parseDouble(scanner.nextLine());
-                valid = true;
-            } catch (NumberFormatException e) {
+                System.out.print(message);
+                result = scanner.nextInt();
+                validInput = true;
+            } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Please enter a valid number.");
+                scanner.next(); // Clear the invalid input
             }
         }
-        return value;
+        return result;
     }
 
-    public static int getInt(String prompt) {
-        int value = 0;
-        boolean valid = false;
-        while (!valid) {
-            try {
-                System.out.print(prompt);
-                value = Integer.parseInt(scanner.nextLine());
-                valid = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a valid integer.");
-            }
-        }
-        return value;
+    // Method to get a string input
+    public static String getString(String message) {
+        System.out.print(message);
+        return scanner.nextLine();
     }
 }
 

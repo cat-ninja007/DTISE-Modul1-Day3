@@ -1,6 +1,7 @@
 package day8;
 
 import day8.utils.Input;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,64 +14,41 @@ public class TicketSystem {
         tickets = new ArrayList<>();
     }
 
-    public void addEvent(String eventName, int availableTickets) {
-        events.add(new Event(eventName, availableTickets));
+    // Method to add an event to the system
+    public void addEvent(Event event) {
+        events.add(event);
+        tickets.add(new Ticket(event));
     }
 
-    public void createTicket() {
-        try {
-            String eventName = Input.getString("Enter event name: ");
-            double price = Input.getDouble("Enter ticket price: ");
-            int eventId = findEvent(eventName);
-
-            if (eventId != -1) {
-                int ticketId = tickets.size() + 1;
-                tickets.add(new Ticket(ticketId, eventName, price));
-                System.out.println("Ticket created successfully!");
-            } else {
-                throw new Exception("Event not found.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error creating ticket: " + e.getMessage());
-        }
-    }
-
-    public void bookTicket() {
-        try {
-            String eventName = Input.getString("Enter event name to book: ");
-            int eventId = findEvent(eventName);
-
-            if (eventId != -1 && events.get(eventId).isTicketAvailable()) {
-                events.get(eventId).bookTicket();
-                System.out.println("Ticket booked successfully!");
-            } else {
-                throw new Exception("No tickets available or event not found.");
-            }
-        } catch (Exception e) {
-            System.out.println("Error booking ticket: " + e.getMessage());
-        }
-    }
-
-    public void confirmBooking() {
-        try {
-            if (tickets.isEmpty()) {
-                throw new Exception("No tickets booked.");
-            }
-            Ticket ticket = tickets.get(tickets.size() - 1);
-            ticket.printTicketDetails();
-            System.out.println("Booking confirmed!");
-        } catch (Exception e) {
-            System.out.println("Error confirming booking: " + e.getMessage());
-        }
-    }
-
-    private int findEvent(String eventName) {
+    // Display available events that are not yet booked
+    public void displayAvailableEvents() {
+        System.out.println("\nAvailable Events:");
         for (int i = 0; i < events.size(); i++) {
-            if (events.get(i).getEventName().equalsIgnoreCase(eventName)) {
-                return i;
+            if (!tickets.get(i).isBooked()) {
+                System.out.println((i + 1) + ". " + events.get(i).getEventName() + " - $" + events.get(i).getPrice());
             }
         }
-        return -1;
+    }
+
+    // Method to book a ticket for an event
+    public void bookTicket(int eventChoice) {
+        try {
+            if (eventChoice > 0 && eventChoice <= events.size()) {
+                Ticket selectedTicket = tickets.get(eventChoice - 1);
+
+                if (!selectedTicket.isBooked()) {
+                    Input.getString(""); // Consume newline
+                    String buyerName = Input.getString("Enter your name: ");
+                    selectedTicket.book(buyerName);
+                } else {
+                    System.out.println("Sorry, this ticket is already booked.");
+                }
+            } else {
+                System.out.println("Invalid event choice.");
+            }
+        } catch (Exception e) {
+            System.out.println("An error occurred while booking the ticket: " + e.getMessage());
+        }
     }
 }
 

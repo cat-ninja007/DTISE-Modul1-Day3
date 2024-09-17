@@ -2,30 +2,18 @@ package day8;
 
 public class Event {
     private String eventName;
-    private int availableTickets;
+    private double price;
 
-    public Event(String eventName, int availableTickets) {
+    public Event(String eventName, double price) {
         this.eventName = eventName;
-        this.availableTickets = availableTickets;
+        this.price = price;
     }
 
     public String getEventName() {
         return eventName;
     }
 
-    public int getAvailableTickets() {
-        return availableTickets;
-    }
-
-    public void bookTicket() throws Exception {
-        if (availableTickets > 0) {
-            availableTickets--;
-        } else {
-            throw new Exception("No tickets available for this event.");
-        }
-    }
-
-    public boolean isTicketAvailable() {
-        return availableTickets > 0;
+    public double getPrice() {
+        return price;
     }
 }

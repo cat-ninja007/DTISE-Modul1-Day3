@@ -2,27 +2,33 @@ package day8;
 
 public class Ticket implements Ticketable {
     private static int totalTicketsSold = 0;
-    private int ticketId;
-    private String eventName;
-    private double price;
+    private static int ticketCounter = 1000;
 
-    public Ticket(int ticketId, String eventName, double price) {
-        this.ticketId = ticketId;
-        this.eventName = eventName;
-        this.price = price;
-        totalTicketsSold++;
+    private int ticketID;
+    private String buyerName;
+    private Event event;
+    private boolean isBooked;
+
+    public Ticket(Event event) {
+        this.ticketID = ++ticketCounter;
+        this.event = event;
+        this.isBooked = false;
     }
 
-    public int getTicketId() {
-        return ticketId;
+    public boolean isBooked() {
+        return isBooked;
     }
 
-    public String getEventName() {
-        return eventName;
-    }
-
-    public double getPrice() {
-        return price;
+    public void book(String buyerName) {
+        if (!isBooked) {
+            this.buyerName = buyerName;
+            this.isBooked = true;
+            totalTicketsSold++;
+            System.out.println("Ticket booked successfully!");
+            printTicket();
+        } else {
+            System.out.println("Sorry, this ticket is already booked.");
+        }
     }
 
     public static int getTotalTicketsSold() {
@@ -30,10 +36,14 @@ public class Ticket implements Ticketable {
     }
 
     @Override
-    public void printTicketDetails() {
-        System.out.println("Ticket ID: " + ticketId);
-        System.out.println("Event: " + eventName);
-        System.out.println("Price: $" + price);
+    public void printTicket() {
+        System.out.println("\n----- Ticket Details -----");
+        System.out.println("Ticket ID: " + ticketID);
+        System.out.println("Event: " + event.getEventName());
+        System.out.println("Price: $" + event.getPrice());
+        System.out.println("Buyer: " + buyerName);
+        System.out.println("--------------------------\n");
     }
 }
+
 
